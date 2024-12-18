@@ -1,4 +1,4 @@
-import React, { type ElementType, type ReactNode } from 'react';
+import type { ElementType, ReactNode } from 'react';
 
 import * as styles from './ToolbarPanel.css';
 
@@ -7,11 +7,5 @@ interface Props {
   as?: ElementType;
 }
 
-export const ToolbarPanel = ({ as: component = 'aside', children }: Props) =>
-  React.createElement(
-    component,
-    {
-      className: styles.root,
-    },
-    children
-  );
+export const ToolbarPanel = ({ as: Component = 'aside', children }: Props) =>
+  <Component className={styles.root}>{children}</Component>;

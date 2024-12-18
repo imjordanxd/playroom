@@ -20,13 +20,16 @@ export const Text = ({
   truncate = false,
   children,
 }: Props) =>
-  React.createElement(
-    component,
-    {
-      className: classnames(styles.base, styles[size], styles[tone], {
+{
+  const Tag = component || 'span';
+  return (
+    <Tag
+      className={classnames(styles.base, styles[size], styles[tone], {
         [styles.strong]: weight === 'strong',
         [styles.truncate]: truncate,
-      }),
-    },
-    children
+      })}
+    >
+      {children}
+    </Tag>
   );
+};
